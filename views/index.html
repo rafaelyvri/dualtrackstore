@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dual Track | Sneaker Vault 🛡️</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1 class="glitch-text" data-text="DUAL TRACK">DUAL TRACK</h1>
+        <p>SNEAKER VAULT 🛡️ Sistema de Controle de Drops e Raridades</p>
+    </header>
+
+    <main>
+        <section id="cadastro-sneaker">
+            <h2>Gerenciar Tênis (CRUD)</h2>
+            <form id="form-sneaker">
+                <input type="hidden" id="sneaker-id">
+                
+                <input type="text" id="nome" placeholder="Nome do Tênis (Ex: Air Jordan 1)" required>
+                <input type="text" id="marca" placeholder="Marca (Ex: Nike)" required>
+                <input type="text" id="modelo" placeholder="Modelo (Ex: Low Panda, Yeezy 350)" required>
+                
+                <div class="inline-fields">
+                    <input type="number" id="tamanho" step="0.5" placeholder="Tamanho (Ex: 40.5)" required>
+                    <input type="number" id="preco" step="0.01" placeholder="Preço (R$ 499.99)" required>
+                </div>
+                
+                <select id="raridade" required>
+                    <option value="">Selecione a Raridade</option>
+                    <option value="GR">GR (General Release)</option>
+                    <option value="QS">Quickstrike (QS)</option>
+                    <option value="Limited">Limited Edition</option>
+                    <option value="F&F">F&F (Friends & Family)</option>
+                </select>
+                <input type="text" id="imagem_url" placeholder="URL da Imagem (opcional)">
+                
+                <button type="submit" id="btn-submit"><i class="fas fa-plus"></i> Cadastrar Novo</button>
+                <button type="button" id="btn-cancelar" class="cancel-btn" style="display:none;"><i class="fas fa-times"></i> Cancelar Edição</button>
+            </form>
+            <p id="mensagem-status" class="status-message"></p>
+        </section>
+        
+        <section id="lista-sneakers">
+            <h2>Catálogo de Drops</h2>
+            <table id="tabela-sneakers">
+                <thead>
+                    <tr>
+                        <th>Imagem</th>
+                        <th>Nome/Modelo</th>
+                        <th>Marca</th>
+                        <th>Raridade</th>
+                        <th>Preço/Tamanho</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Dual Track Streetwear.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

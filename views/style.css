@@ -1,0 +1,261 @@
+:root {
+    --primary-dark: #121212;      /* Fundo principal escuro */
+    --secondary-dark: #1e1e1e;    /* Fundo de elementos */
+    --accent-red: #E74C3C;        /* Vermelho de destaque e ação */
+    --light-text: #E0E0E0;        /* Texto claro */
+    --subtle-text: #AAAAAA;       /* Texto secundário */
+    --success-color: #2ecc71;     /* Verde para Editar */
+    --border-color: #333;         /* Borda sutil */
+}
+
+body {
+    font-family: 'Inter', 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-dark);
+    color: var(--light-text);
+}
+
+/* --- Cabeçalho e Título Glitch --- */
+header {
+    background-color: var(--primary-dark);
+    color: var(--light-text);
+    padding: 30px 0 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border-bottom: 4px solid var(--accent-red);
+}
+
+header h1 {
+    font-size: 3.8em;
+    margin-top: 0;
+    margin-bottom: 8px;
+    letter-spacing: 6px;
+    font-weight: 900;
+}
+
+header p {
+    color: var(--subtle-text);
+    margin: 0;
+    font-size: 1.1em;
+}
+
+/* --- Efeito Glitch (Mantido) --- */
+.glitch-text {
+    position: relative;
+    color: var(--light-text);
+    text-transform: uppercase;
+    /* Reduz a animação principal para ser mais sutil */
+    animation: glitch-anim-main 0.1s infinite linear alternate;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-dark);
+}
+
+.glitch-text::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--accent-red); 
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 2.5s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+    left: -2px;
+    text-shadow: -2px 0 #3498db; /* Um toque de azul para contraste (hacker style) */
+    clip: rect(85px, 450px, 100px, 0);
+    animation: glitch-anim 3s infinite linear alternate;
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(27px, 9999px, 86px, 0); transform: skew(0.5deg); }
+    10% { clip: rect(54px, 9999px, 96px, 0); transform: skew(0.5deg); }
+    20% { clip: rect(69px, 9999px, 20px, 0); transform: skew(-0.5deg); }
+    30% { clip: rect(22px, 9999px, 63px, 0); transform: skew(0deg); }
+    40% { clip: rect(74px, 9999px, 59px, 0); transform: skew(-0.5deg); }
+    50% { clip: rect(96px, 9999px, 72px, 0); transform: skew(0.5deg); }
+    60% { clip: rect(65px, 9999px, 66px, 0); transform: skew(0deg); }
+    70% { clip: rect(77px, 9999px, 72px, 0); transform: skew(0.5deg); }
+    80% { clip: rect(42px, 9999px, 32px, 0); transform: skew(-0.5deg); }
+    90% { clip: rect(21px, 9999px, 56px, 0); transform: skew(0.5deg); }
+    100% { clip: rect(98px, 9999px, 71px, 0); transform: skew(0deg); }
+}
+/* --- Fim do Efeito Glitch --- */
+
+
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* --- Formulário e Seções --- */
+#cadastro-sneaker, #lista-sneakers {
+    background-color: var(--secondary-dark);
+    padding: 30px;
+    margin-bottom: 35px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+    color: var(--light-text);
+    border-bottom: 2px solid var(--accent-red);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    font-size: 1.5em;
+}
+
+#form-sneaker input[type="text"], 
+#form-sneaker input[type="number"], 
+#form-sneaker select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: var(--primary-dark);
+    color: var(--light-text);
+    transition: border-color 0.3s;
+}
+
+#form-sneaker input:focus, #form-sneaker select:focus {
+    border-color: var(--accent-red);
+    outline: none;
+}
+
+.inline-fields {
+    display: flex;
+    gap: 20px;
+}
+
+/* Botões */
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#btn-submit {
+    background-color: var(--accent-red);
+    color: var(--secondary-dark);
+    border: 2px solid var(--accent-red);
+}
+
+#btn-submit:hover {
+    background-color: transparent;
+    color: var(--accent-red);
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+}
+
+.cancel-btn {
+    background-color: #555;
+    color: white;
+}
+
+/* --- Tabela de Controle --- */
+#tabela-sneakers {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#tabela-sneakers thead th {
+    background-color: var(--primary-dark);
+    color: var(--accent-red);
+    padding: 15px 10px;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 0.95em;
+    border-bottom: 2px solid var(--accent-red);
+}
+
+#tabela-sneakers tbody tr {
+    border-bottom: 1px solid #333;
+    transition: background-color 0.2s;
+}
+
+#tabela-sneakers tbody tr:hover {
+    background-color: #282828;
+}
+
+#tabela-sneakers tbody td {
+    padding: 15px 10px;
+    vertical-align: middle;
+}
+
+#tabela-sneakers tbody tr:nth-child(even) {
+    background-color: var(--secondary-dark); /* Fundo dos itens pares mantido escuro */
+}
+#tabela-sneakers tbody tr:nth-child(odd) {
+    background-color: #1a1a1a;
+}
+
+
+#tabela-sneakers img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #555;
+}
+
+/* Estilos de Raridade (Cores intuitivas mantidas, mas mais escuras) */
+.raridade-limited { color: var(--accent-red); font-weight: bold; } 
+.raridade-f-f { color: #f1c40f; font-weight: bold; } /* Amarelo */
+.raridade-qs { color: #3498db; font-weight: bold; } /* Azul */
+.raridade-gr { color: #2ecc71; font-weight: bold; } /* Verde */
+
+/* Botões de Ação na Tabela */
+#tabela-sneakers button {
+    padding: 8px 12px;
+    font-size: 0.9em;
+    margin-left: 8px;
+}
+
+.delete-btn {
+    background-color: var(--accent-red);
+    color: white;
+}
+
+.edit-btn {
+    background-color: var(--success-color);
+    color: var(--primary-dark);
+}
+
+/* Mensagens */
+.status-message {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 6px;
+    /* Inverte cores para contraste no fundo escuro */
+    background-color: #dff0d8; 
+    color: #3c763d;
+    display: none; 
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-dark);
+    color: #555;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+    font-size: 0.9em;
+    border-top: 1px solid #333;
+}
